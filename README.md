@@ -8,16 +8,16 @@ Proyek ini penting karena dapat membantu pengguna untuk menemukan smartphone yan
 
 ## Business Understanding
 ### Problem Statements
-- Bagaimana cara memberikan rekomendasi smartphone yang relevan kepada pengguna berdasarkan preferensi mereka?
-- Apa pendekatan yang dapat digunakan untuk meningkatkan akurasi sistem rekomendasi pada dataset yang terbatas?
+1. Bagaimana cara memberikan rekomendasi smartphone yang relevan kepada pengguna berdasarkan preferensi mereka?
+2. Apa pendekatan yang dapat digunakan untuk meningkatkan akurasi sistem rekomendasi pada dataset yang terbatas?
 
 ### Goals
-- Mengembangkan sistem rekomendasi yang dapat memberikan rekomendasi smartphone berdasarkan rating dan fitur produk.
-- Menggunakan dua metode berbeda, yaitu Content-Based Filtering dan Collaborative Filtering, untuk mengevaluasi efektivitas keduanya dalam memberikan rekomendasi yang akurat.
+1. Mengembangkan sistem rekomendasi yang dapat memberikan rekomendasi smartphone berdasarkan rating dan fitur produk.
+2. Menggunakan dua metode berbeda, yaitu Content-Based Filtering dan Collaborative Filtering, untuk mengevaluasi efektivitas keduanya dalam memberikan rekomendasi yang akurat.
 
 ### Solution Approach
-- Content-Based Filtering: Menggunakan fitur produk (misalnya harga, brand, RAM, dan lainnya) untuk memberikan rekomendasi berdasarkan kesamaan antara produk yang disukai pengguna dengan produk lainnya.
-- Collaborative Filtering: Menggunakan data rating pengguna untuk memprediksi rating yang belum diberikan oleh pengguna pada produk tertentu, kemudian merekomendasikan produk dengan rating tertinggi.
+1. Content-Based Filtering: Menggunakan fitur produk (misalnya harga, brand, RAM, dan lainnya) untuk memberikan rekomendasi berdasarkan kesamaan antara produk yang disukai pengguna dengan produk lainnya.
+2. Collaborative Filtering: Menggunakan data rating pengguna untuk memprediksi rating yang belum diberikan oleh pengguna pada produk tertentu, kemudian merekomendasikan produk dengan rating tertinggi.
 
 ## Data Understanding
 ### Dataset
@@ -120,5 +120,5 @@ Untuk Collaborative Filtering, lebih banyak data pengguna dan rating akan memban
 Untuk Content-Based Filtering, dapat diperbaiki dengan menggunakan bobot fitur yang lebih tepat dan menggabungkan dengan teknik lain seperti hybrid filtering.
 
 ### Referensi 
-Sarwar, Badrul, et al. "Item-based collaborative filtering recommendation algorithms." Proceedings of the 10th international conference on World Wide Web. 2000.
-https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations
+1. Sarwar, Badrul, et al. "Item-based collaborative filtering recommendation algorithms." Proceedings of the 10th international conference on World Wide Web. 2000.
+2. Kaggle. (2022). Cellphones Recommendations. Retrieved from https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations
