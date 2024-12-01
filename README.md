@@ -20,6 +20,16 @@ Proyek ini penting karena dapat membantu pengguna untuk menemukan smartphone yan
 - Collaborative Filtering: Menggunakan data rating pengguna untuk memprediksi rating yang belum diberikan oleh pengguna pada produk tertentu, kemudian merekomendasikan produk dengan rating tertinggi.
 
 ## Data Understanding
+### Dataset
+| Jenis              | Keterangan                    |
+|--------------------|-------------------------------|
+| Title              | Cellphones Recommendations  |
+| Source             | https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations|
+| License            | https://opendatacommons.org/licenses/odbl/1-0/|
+| Visibility         | Public                        |
+| Tags               | Pre-trained model, Electronic, E-Commerce Service, Mobile and Wireless, Recommender System|
+| Usability          | 10.00                          |
+
 ### Dataset yang digunakan dalam proyek ini terdiri dari tiga file CSV:
 cellphone_ratings.csv: Berisi data rating yang diberikan pengguna terhadap smartphone.
 cellphone_user.csv: Berisi data pengguna, termasuk usia, jenis kelamin, dan pekerjaan.
@@ -51,10 +61,12 @@ RAM, internal memory, performance, dll.
 
 ### Visualisasi Distribus Rating
 Distribusi rating pengguna terhadap smartphone memberikan gambaran sebaran penilaian yang diberikan oleh pengguna. Berikut adalah grafik distribusi rating:
+
 ![image](https://github.com/user-attachments/assets/1c8db077-63e7-4914-a266-44d19a4c837a)
 
 ### Visualisasi Distribusi Usia dan Gender Pengguna
 Distribusi usia dan gender pengguna memberikan wawasan tentang karakteristik demografis pengguna yang memberikan rating terhadap produk. Berikut adalah grafik distribusi usia dan gender pengguna:
+
 ![image](https://github.com/user-attachments/assets/680dec53-f57b-4229-bb20-6ccf61db019f)
 ![image](https://github.com/user-attachments/assets/6c1c8f1f-bfe1-4163-89a6-62160f2a36a8)
 
@@ -69,8 +81,9 @@ Pada tahap ini, data dibersihkan dan dipersiapkan untuk analisis lebih lanjut. T
 1. Content-Based Filtering
 Menggunakan kesamaan fitur smartphone, seperti harga, RAM, dan lainnya, untuk memberikan rekomendasi produk yang serupa dengan yang telah dinilai oleh pengguna.
 Output Content-Based Recommendations:
-| No  | Cellphone ID | Brand  | Model                   | Price  |
-| --- | ------------ | ------ | ----------------------- | ------ |
+
+| No  | Cellphone ID | Brand  | Model                    | Price       |
+|-----|--------------|--------|--------------------------|-------------|
 | 1   | 1            | Apple  | iPhone 13 Mini           | 0.304976    |
 | 2   | 2            | Apple  | iPhone 13                | 0.304976    |
 | 3   | 3            | Apple  | iPhone 13 Pro            | 0.465490    |
@@ -81,7 +94,7 @@ Output Content-Based Recommendations:
 Menggunakan data rating untuk memprediksi rating yang belum diberikan oleh pengguna dan memberikan rekomendasi berdasarkan prediksi tersebut.
 Output Collaborative Filtering :
 | No  | Cellphone ID | Brand   | Model                    | Price  | Predicted Rating |
-| --- | ------------ | ------- | ------------------------ | ------ | ---------------- |
+|-----|--------------|---------|--------------------------|--------|------------------|
 | 1   | 0            | Apple   | iPhone SE (2022)         | 429    | 0.149560         |
 | 2   | 6            | Asus    | Zenfone 8                | 699    | 0.142755         |
 | 3   | 11           | Samsung | Galaxy S22 Plus          | 999    | 0.140686         |
