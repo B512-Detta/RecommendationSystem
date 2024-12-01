@@ -93,6 +93,7 @@ Output Content-Based Recommendations:
 2. Collaborative Filtering
 Menggunakan data rating untuk memprediksi rating yang belum diberikan oleh pengguna dan memberikan rekomendasi berdasarkan prediksi tersebut.
 Output Collaborative Filtering :
+
 | No  | Cellphone ID | Brand   | Model                    | Price  | Predicted Rating |
 |-----|--------------|---------|--------------------------|--------|------------------|
 | 1   | 0            | Apple   | iPhone SE (2022)         | 429    | 0.149560         |
