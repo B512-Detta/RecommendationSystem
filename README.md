@@ -119,6 +119,6 @@ Content-Based Filtering dapat memberikan rekomendasi yang relevan berdasarkan fi
 Untuk Collaborative Filtering, lebih banyak data pengguna dan rating akan membantu meningkatkan akurasi model.
 Untuk Content-Based Filtering, dapat diperbaiki dengan menggunakan bobot fitur yang lebih tepat dan menggabungkan dengan teknik lain seperti hybrid filtering.
 
-### Referensi 
+## Referensi 
 1. Sarwar, Badrul, et al. "Item-based collaborative filtering recommendation algorithms." Proceedings of the 10th international conference on World Wide Web. 2000.
 2. Kaggle. (2022). Cellphones Recommendations. Retrieved from https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations
