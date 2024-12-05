@@ -35,29 +35,52 @@ cellphone_ratings.csv: Berisi data rating yang diberikan pengguna terhadap smart
 cellphone_user.csv: Berisi data pengguna, termasuk usia, jenis kelamin, dan pekerjaan.
 cellphonedata.csv: Berisi informasi fitur terkait smartphone seperti brand, model, harga, RAM, dan lainnya.
 
-### Jumlah data:
-cellphone_ratings.csv: 99 pengguna, 33 produk.
-cellphone_user.csv: 99 pengguna.
-cellphonedata.csv: 33 smartphone.
+###Dataset
+Dataset yang digunakan terdiri dari tiga file CSV berikut:
 
-### Variabel pada Dataset
-cellphone_ratings.csv:
-user_id: ID pengguna.
-cellphone_id: ID smartphone.
-rating: Rating yang diberikan oleh pengguna untuk smartphone.
+1. cellphone_ratings.csv
+- Deskripsi: Berisi data rating yang diberikan pengguna terhadap smartphone.
+- Jumlah data: 990 baris, 3 kolom.
+- Kondisi data:
+  - Tidak ada duplikasi.
+  - Tidak terdapat missing value.
+- Fitur:
+  - user_id: ID unik pengguna.
+  - cellphone_id: ID unik smartphone.
+  - rating: Rating yang diberikan (skala 1-5).
 
-cellphone_user.csv:
-user_id: ID pengguna.
-age: Usia pengguna.
-gender: Jenis kelamin pengguna.
-occupation: Pekerjaan pengguna.
+2. cellphone_user.csv
+- Deskripsi: Berisi data profil pengguna.
+- Jumlah data: 99 baris, 4 kolom.
+- Kondisi data:
+  - Kolom occupation memiliki nilai kosong sebanyak 10% (missing value).
+  - Tidak ada duplikasi.
+- Fitur:
+  - user_id: ID unik pengguna.
+  - age: Usia pengguna.
+  - gender: Jenis kelamin pengguna.
+  - occupation: Pekerjaan pengguna.
 
-cellphonedata.csv:
-cellphone_id: ID smartphone.
-brand: Merk smartphone.
-model: Model smartphone.
-price: Harga smartphone.
-RAM, internal memory, performance, dll.
+3. cellphonedata.csv
+- Deskripsi: Berisi informasi terkait smartphone.
+- Jumlah data: 33 baris, 8 kolom.
+- Kondisi data:
+  - Tidak terdapat missing value atau duplikasi.
+- Fitur:
+  - cellphone_id: ID unik smartphone.
+  - brand: Merk smartphone.
+  - model: Model smartphone.
+  - price: Harga smartphone (dalam USD).
+  - RAM: Kapasitas RAM (dalam GB).
+  - internal_memory: Kapasitas memori internal (dalam GB).
+  - performance: Skor performa berdasarkan benchmark.
+  - main camera: Spesifikasi kamera utama.
+  - selfie camera: Spesifikasi kamera depan.
+  - battery size: Kapasitas baterai (mAh).
+  - screen size: Ukuran layar (inci).
+  - weight: Berat smartphone (gram).
+  - price: Harga smartphone (USD).
+  - release_date: Tanggal rilis smartphone.
 
 ### Visualisasi Distribus Rating
 Distribusi rating pengguna terhadap smartphone memberikan gambaran sebaran penilaian yang diberikan oleh pengguna. Berikut adalah grafik distribusi rating:
@@ -75,11 +98,21 @@ Distribusi usia dan gender pengguna memberikan wawasan tentang karakteristik dem
 Pada tahap ini, data dibersihkan dan dipersiapkan untuk analisis lebih lanjut. Tahapan yang dilakukan:
 - Menghapus Missing Values: Kolom yang memiliki nilai hilang (missing) dihapus dari dataset, dan terdapat missing value pada data pengguna/User data tepatnya pada kolom occupation.
 - Mengonversi Tipe Data: Kolom yang tidak sesuai tipe data dikonversi, seperti mengonversi release date menjadi format tanggal.
-- Membuat Matriks Rating: Data rating pengguna dikonversi menjadi matriks dengan pengguna sebagai baris dan smartphone sebagai kolom.
+- Normalisasi Data: Data numerik seperti internal memory, RAM, performance, battery size, screen size, weight, dan price dinormalisasi menggunakan MinMaxScaler untuk membawa nilai ke rentang 0-1. Hal ini dilakukan untuk memastikan semua fitur memiliki skala yang sebanding saat digunakan dalam algoritma.
+- Merge Data: Dataset digabungkan (merge) untuk menggabungkan informasi dari berbagai tabel:
+  - Ratings Data dan Cellphones Data digabungkan berdasarkan cellphone_id.
+  - Hasilnya kemudian digabungkan dengan Users Data berdasarkan user_id.
+    Proses ini menghasilkan dataset gabungan yang berisi informasi lengkap tentang pengguna, ponsel, dan rating.
+- Membuat Matriks Rating: Data rating pengguna dikonversi menjadi matriks dengan pengguna sebagai baris (user_id) dan smartphone sebagai kolom (cellphone_id). Nilai dalam matriks adalah rating yang diberikan, dan sel kosong (missing values) diisi dengan nol untuk memudahkan analisis.
 
 ## Modeling
 1. Content-Based Filtering
 Menggunakan kesamaan fitur smartphone, seperti harga, RAM, dan lainnya, untuk memberikan rekomendasi produk yang serupa dengan yang telah dinilai oleh pengguna.
+- Cara Kerja: Menggunakan atribut produk seperti price, RAM, dan performance untuk menghitung kemiripan antar produk dengan teknik cosine similarity.
+- Proses:
+  - Fitur numerik dinormalisasi.
+  - Matriks fitur digunakan untuk menghitung matriks kesamaan antar produk.
+  - Produk dengan kesamaan tertinggi direkomendasikan kepada pengguna.
 Output Content-Based Recommendations:
 
 | No  | Cellphone ID | Brand  | Model                    | Price       |
@@ -92,6 +125,11 @@ Output Content-Based Recommendations:
 
 2. Collaborative Filtering
 Menggunakan data rating untuk memprediksi rating yang belum diberikan oleh pengguna dan memberikan rekomendasi berdasarkan prediksi tersebut.
+- Cara Kerja: Memanfaatkan pola rating pengguna untuk memprediksi rating yang belum diberikan, menggunakan pendekatan matriks faktorisasi (SVD).
+- Proses:
+  - Matriks rating di-dekomposisi menjadi matriks pengguna-latent dan produk-latent.
+  - Prediksi rating dihitung sebagai hasil perkalian kedua matriks tersebut.
+  - Produk dengan prediksi rating tertinggi direkomendasikan kepada pengguna.
 Output Collaborative Filtering :
 
 | No  | Cellphone ID | Brand   | Model                    | Price  | Predicted Rating |
