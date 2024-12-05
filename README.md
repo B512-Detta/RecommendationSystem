@@ -106,7 +106,7 @@ Pada tahap ini, data dibersihkan dan dipersiapkan untuk analisis lebih lanjut. T
 - Membuat Matriks Rating: Data rating pengguna dikonversi menjadi matriks dengan pengguna sebagai baris (user_id) dan smartphone sebagai kolom (cellphone_id). Nilai dalam matriks adalah rating yang diberikan, dan sel kosong (missing values) diisi dengan nol untuk memudahkan analisis.
 
 ## Modeling
-1. Content-Based Filtering
+#### 1. Content-Based Filtering
 Menggunakan kesamaan fitur smartphone, seperti harga, RAM, dan lainnya, untuk memberikan rekomendasi produk yang serupa dengan yang telah dinilai oleh pengguna.
 - Cara Kerja: Menggunakan atribut produk seperti price, RAM, dan performance untuk menghitung kemiripan antar produk dengan teknik cosine similarity.
 - Proses:
@@ -123,7 +123,7 @@ Output Content-Based Recommendations:
 | 4   | 10           | Samsung| Galaxy S22               | 0.213483    |
 | 5   | 21           | OnePlus| 10T                      | 0.278224    |
 
-2. Collaborative Filtering
+#### 2. Collaborative Filtering
 Menggunakan data rating untuk memprediksi rating yang belum diberikan oleh pengguna dan memberikan rekomendasi berdasarkan prediksi tersebut.
 - Cara Kerja: Memanfaatkan pola rating pengguna untuk memprediksi rating yang belum diberikan, menggunakan pendekatan matriks faktorisasi (SVD).
 - Proses:
